@@ -1,0 +1,56 @@
+<div class="mb-4">
+  <h2 class="text-primary">
+    Registrarse
+  </h2>
+  <div>¿Ya tienes una cuenta?
+    <a routerLink="/signin" class="text-decoration-none fw-medium text-success d-inlin-block">Login</a>
+  </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <input class="form-control bg-body-secondary" placeholder="Nombre" formControlName="name">
+    <div class="error-feedback" *ngIf="hasDisplayableError('name') && form.controls.name.hasError('required')">
+      Por favor, introduzca su nombre.
+    </div>
+  </div>
+  <div class="mb-3">
+    <input class="form-control bg-body-secondary" placeholder="Email" formControlName="email">
+    <div class="error-feedback" *ngIf="hasDisplayableError('email')">
+      <div *ngIf="form.controls.email.hasError('required')">
+        Por favor, introduzca su dirección de correo electrónico.
+      </div>
+      <div *ngIf="form.controls.email.hasError('email')">
+        Por favor, introduce una dirección de correo electrónico válida.
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <input class="form-control bg-body-secondary" placeholder="Password" formControlName="password">
+    <div class="error-feedback" *ngIf="hasDisplayableError('password')">
+      <ng-container [ngSwitch]="form.controls.password.errors | firstKey">
+        <div *ngSwitchCase="'required'">
+          Por favor, introduzca su contraseña.
+        </div>
+        <div *ngSwitchCase="'minlength'">
+          Se requieren al menos 8 caracteres.
+        </div>
+        <div *ngSwitchCase="'pattern'">
+          Uno o más caracteres especiales.
+        </div>
+      </ng-container>
+      
+    </div>
+  </div>
+  <div class="mb-3">
+    <input class="form-control bg-body-secondary" placeholder="Confirm Password" formControlName="confirmPassword">
+    <div class="error-feedback" 
+    *ngIf="hasDisplayableError('confirmPassword') && form.controls.confirmPassword.hasError('passwordMismatch')">
+      Las contraseñas no coinciden.
+    </div>
+  </div>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary w-100 rounded-3">
+      Registrarse
+    </button>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+<div class="mb-4">
+    <h2 class="text-primary">
+      Login
+    </h2>
+    <div>¿No tienes una cuenta?
+      <a routerLink="/signup" class="text-decoration-none fw-medium text-primary d-inlin-block">Registrarse</a>
+    </div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <input class="form-control bg-body-secondary" placeholder="Email" formControlName="email">
+      <div class="error-feedback" *ngIf="hasDisplayableError('email') && form.controls.email.hasError('required')">
+        Por favor, introduzca su dirección de correo electrónico.
+      </div>
+    </div>
+    <div class="mb-3">
+      <input class="form-control bg-body-secondary" placeholder="Password" formControlName="password">
+      <div class="error-feedback" *ngIf="hasDisplayableError('password') && form.controls.password.hasError('required')">
+        Por favor, introduzca su contraseña.
+      </div>
+    </div>
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary w-100 rounded-3">
+        Entrar
+      </button>
+    </div>
+  </form>

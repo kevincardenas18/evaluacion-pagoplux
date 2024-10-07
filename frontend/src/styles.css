@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* form validation */
+  .error-feedback {
+    font-size: 0.9rem;
+    color: crimson;
+    margin: 0.3rem !important;
+    margin-top: 0.1rem !important;
+  }
+
+  .dashboard-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .dashboard-main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px); 
+  }
+  
+  .paybox-section {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .paybox-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
